@@ -1,0 +1,173 @@
+/* Variáveis de Cores */
+:root {
+    --preto-principal: #1A1A1A; /* Um preto bem escuro */
+    --amarelo-destaque: #FFD700; /* Amarelo dourado vibrante */
+    --cinza-claro-fundo: #F2F2F2; /* Cinza muito claro, quase branco */
+    --cinza-texto-principal: #333333; /* Cinza escuro para textos */
+    --cinza-texto-secundario: #808080; /* Cinza médio para detalhes */
+    --branco: #FFFFFF;
+}
+
+/* Geral para o corpo e seções */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--cinza-texto-principal); /* Cor de texto padrão */
+    background-color: var(--cinza-claro-fundo); /* Fundo padrão do corpo */
+}
+
+/* Opcional: Para usar altura em VH (viewport height) */
+html, body {
+    height: 100%;
+}
+
+/* --- Ajustes Específicos por Seção (Opção 2) --- */
+
+/* Seções com padding vertical para dar "espaço" */
+section {
+    padding: 80px 0; /* Padding superior e inferior generoso para todas as seções */
+}
+
+/* Header */
+header {
+    background-color: var(--preto-principal) !important; /* Força o preto para o header */
+    color: var(--branco) !important;
+}
+
+/* Seção de Slogan (Hero Section) */
+#slogan {
+    min-height: 70vh;
+    background-image: url('https://via.placeholder.com/1920x1080/1A1A1A/FFD700?text=Fundo+da+Funilaria'); /* Exemplo de imagem de fundo com a paleta */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+    color: var(--branco); /* Texto branco na seção slogan */
+}
+
+/* Overlay para escurecer a imagem de fundo e melhorar a legibilidade do texto */
+#slogan::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Preto com 60% de opacidade */
+    z-index: -1;
+}
+
+/* Serviços */
+#serviços {
+    background-color: var(--cinza-claro-fundo); /* Fundo cinza claro */
+}
+
+#serviços h2 {
+    color: var(--preto-principal); /* Título de serviço preto */
+}
+
+#serviços .card-title {
+    color: var(--preto-principal); /* Título do card preto */
+}
+
+#serviços .card-text {
+    color: var(--cinza-texto-secundario); /* Texto secundário cinza */
+}
+
+/* Parcerias */
+#parcerias {
+    background-color: var(--preto-principal); /* Fundo preto */
+    color: var(--branco); /* Texto branco */
+}
+
+/* Quem Somos */
+#sobre {
+    background-color: var(--cinza-claro-fundo); /* Fundo cinza claro */
+    color: var(--cinza-texto-principal); /* Texto cinza escuro */
+}
+
+#sobre h2 {
+    color: var(--preto-principal); /* Título preto */
+}
+
+/* Informações de Contato */
+#info {
+    background-color: var(--cinza-texto-principal); /* Fundo cinza escuro */
+    color: var(--branco); /* Texto branco */
+}
+
+#info h3 {
+    color: var(--branco); /* Títulos brancos */
+}
+
+/* Estilo para links de contato (ícones) */
+#info ul li i {
+    color: var(--amarelo-destaque); /* Ícones em amarelo */
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--preto-principal) !important; /* Força o preto para o rodapé */
+    color: rgba(255, 255, 255, 0.7) !important; /* Branco com 70% de opacidade */
+}
+
+/* --- Botões e Elementos Bootstrap --- */
+
+/* Botão Amarelo (principal de destaque) */
+.btn-warning {
+    background-color: var(--amarelo-destaque) !important;
+    border-color: var(--amarelo-destaque) !important;
+    color: var(--preto-principal) !important; /* Texto preto no botão amarelo */
+    font-weight: bold;
+}
+
+.btn-warning:hover {
+    background-color: #E6C200 !important; /* Um amarelo ligeiramente mais escuro no hover */
+    border-color: #E6C200 !important;
+}
+
+/* Botão Dark (para "Fale Conosco" na seção "Sobre") */
+.btn-dark {
+    background-color: var(--preto-principal) !important;
+    border-color: var(--preto-principal) !important;
+    color: var(--branco) !important;
+}
+
+.btn-dark:hover {
+    background-color: #333333 !important; /* Um cinza escuro no hover */
+    border-color: #333333 !important;
+}
+
+/* Botão de WhatsApp (verde original do WhatsApp) */
+.btn-success { /* Deixando a cor verde original para o WhatsApp */
+    background-color: #25D366 !important;
+    border-color: #25D366 !important;
+    color: white !important;
+}
+
+.btn-success:hover {
+    background-color: #1DA851 !important;
+    border-color: #1DA851 !important;
+}
+
+
+/* Ajustes para o carrossel de parcerias */
+#parceriaCarousel .carousel-item {
+    padding: 20px 0;
+}
+
+#parceriaCarousel .carousel-control-prev,
+#parceriaCarousel .carousel-control-next {
+    width: 5%;
+}
+
+/* Ajuste para logos dos parceiros no carrossel */
+.grayscale {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease-in-out;
+}
+
+.grayscale:hover {
+    filter: grayscale(0%);
+    opacity: 1 !important; /* Garante que a opacidade volte ao normal no hover */
+}
