@@ -76,7 +76,7 @@ export default function Home() {
     : [
         {
           id: 1,
-          name: "3M",
+          name: "3M.",
           logoUrl:
             "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/3M_wordmark.svg/2560px-3M_wordmark.svg.png",
           website: "#",
