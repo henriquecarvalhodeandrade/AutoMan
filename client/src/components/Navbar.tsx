@@ -58,15 +58,14 @@ export function Navbar() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full duration-300" />
               </Link>
             ))}
-            <Link
-              to="contact"
-              smooth={true}
-              duration={500}
-              offset={-80}
+            <a
+              href="https://wa.me/5512999999999"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-primary hover:bg-primary/90 text-background px-6 py-2 rounded-sm font-bold transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/20 cursor-pointer"
             >
               Agendar
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}

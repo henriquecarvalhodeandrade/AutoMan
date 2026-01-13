@@ -40,7 +40,29 @@ export function LocationContact() {
               <h2 className="font-display text-4xl font-bold text-white mb-8">
                 Agende seu Serviço
               </h2>
-              <ContactForm />
+              
+              <div className="space-y-6">
+                <p className="text-gray-300 text-lg">
+                  Clique no botão abaixo para iniciar uma conversa no WhatsApp e agendar sua avaliação gratuita.
+                </p>
+                <a
+                  href="https://wa.me/5512999999999"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-[#25D366] text-white py-4 rounded-sm font-bold text-xl uppercase tracking-wider hover:brightness-110 transition-all flex items-center justify-center gap-3 shadow-lg shadow-green-500/20"
+                >
+                  Agendar via WhatsApp
+                </a>
+                
+                <div className="pt-8 border-t border-white/10">
+                  <h5 className="text-white font-bold mb-4 uppercase tracking-widest text-sm">Endereço</h5>
+                  <p className="text-gray-400">
+                    Rua Paraibuna, 1177<br />
+                    São José dos Campos - SP<br />
+                    CEP: 12245-020
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

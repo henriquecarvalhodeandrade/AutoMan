@@ -21,7 +21,7 @@ export function Footer() {
               Especialistas em martelinho de ouro e estética automotiva de alto padrão. Preservamos a originalidade e valorização do seu veículo.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-background transition-all">
+              <a href="https://www.instagram.com/automanoficina/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-background transition-all">
                 <Instagram className="w-5 h-5" />
               </a>
               <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-background transition-all">
@@ -34,9 +34,9 @@ export function Footer() {
           <div>
             <h3 className="font-display text-lg text-white mb-6">Navegação</h3>
             <ul className="space-y-4">
-              {['Quem Somos', 'Serviços', 'Galeria', 'Contato'].map((item) => (
+              {['Quem Somos', 'Serviços', 'Portfólio', 'Contato'].map((item) => (
                 <li key={item}>
-                  <a href="#" className="text-gray-400 hover:text-primary transition-colors text-sm">
+                  <a href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-gray-400 hover:text-primary transition-colors text-sm">
                     {item}
                   </a>
                 </li>
@@ -48,7 +48,7 @@ export function Footer() {
           <div>
             <h3 className="font-display text-lg text-white mb-6">Serviços</h3>
             <ul className="space-y-4">
-              {['Martelinho de Ouro', 'Polimento Técnico', 'Vitrificação', 'Higienização Interna'].map((item) => (
+              {['Martelinho de Ouro', 'Funilaria Convencional', 'Polimento', 'Cristalização'].map((item) => (
                 <li key={item}>
                   <span className="text-gray-400 text-sm">{item}</span>
                 </li>
@@ -62,11 +62,11 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-gray-400 text-sm">
                 <MapPin className="w-5 h-5 text-primary shrink-0" />
-                <span>Rua das Oficinas, 123<br />São Paulo - SP</span>
+                <span>Rua Paraibuna, 1177<br />São José dos Campos - SP<br />CEP: 12245-020</span>
               </li>
               <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                <span>(11) 99999-9999</span>
+                <span>(12) 99999-9999</span>
               </li>
               <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <Mail className="w-5 h-5 text-primary shrink-0" />

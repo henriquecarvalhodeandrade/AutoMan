@@ -44,13 +44,14 @@ export function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="contact"
-              smooth={true}
-              className="bg-primary text-background px-8 py-4 rounded-sm font-bold text-lg uppercase tracking-wider hover:bg-white hover:scale-105 transition-all cursor-pointer shadow-lg shadow-primary/25"
+            <a
+              href="https://wa.me/5512999999999"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary text-background px-8 py-4 rounded-sm font-bold text-lg uppercase tracking-wider hover:bg-white hover:scale-105 transition-all cursor-pointer shadow-lg shadow-primary/25 inline-block"
             >
               Agendar Avaliação
-            </Link>
+            </a>
             <Link
               to="services"
               smooth={true}
