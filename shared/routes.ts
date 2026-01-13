@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { insertMessageSchema, services, partners } from './schema';
+import { insertMessageSchema, services, partners, portfolio } from './schema';
 
 export const errorSchemas = {
   validation: z.object({ message: z.string(), field: z.string().optional() }),
@@ -20,6 +20,13 @@ export const api = {
       method: 'GET' as const,
       path: '/api/partners',
       responses: { 200: z.array(z.custom<typeof partners.$inferSelect>()) },
+    },
+  },
+  portfolio: {
+    list: {
+      method: 'GET' as const,
+      path: '/api/portfolio',
+      responses: { 200: z.array(z.custom<typeof portfolio.$inferSelect>()) },
     },
   },
   contact: {

@@ -129,12 +129,12 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h2 className="text-primary font-bold tracking-[0.3em] uppercase mb-4 text-sm md:text-base">
-              Estética Automotiva Premium
+              Funilaria e Pintura
             </h2>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
-              A ARTE DO <br />
+              Martelinho de <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-600 gold-glow">
-                MARTELINHO
+                OURO
               </span>
             </h1>
             <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-light">

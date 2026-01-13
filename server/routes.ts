@@ -20,6 +20,12 @@ export async function registerRoutes(
     res.json(partners);
   });
 
+  // Portfolio
+  app.get(api.portfolio.list.path, async (req, res) => {
+    const items = await storage.getPortfolio();
+    res.json(items);
+  });
+
   // Contact
   app.post(api.contact.submit.path, async (req, res) => {
     try {
@@ -63,22 +69,22 @@ async function seedDatabase() {
     });
   }
 
-  const existingPartners = await storage.getPartners();
-  if (existingPartners.length === 0) {
-    await storage.createPartner({
-      name: "3M",
-      logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/3M_wordmark.svg/2560px-3M_wordmark.svg.png",
-      website: "https://www.3m.com.br"
+  const existingPortfolio = await storage.getPortfolio();
+  if (existingPortfolio.length === 0) {
+    await storage.createPortfolioItem({
+      title: "Honda Civic - Recuperação de Teto e Traseira",
+      beforeImageUrl: "/images/portfolio/civic-antes-1.jpg",
+      afterImageUrl: "/images/portfolio/civic-depois-1.jpg"
     });
-    await storage.createPartner({
-      name: "Meguiar's",
-      logoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Meguiar%27s_logo.svg/2560px-Meguiar%27s_logo.svg.png",
-      website: "https://www.meguiars.com"
+    await storage.createPortfolioItem({
+      title: "Nissan Sentra - Colisão Frontal",
+      beforeImageUrl: "/images/portfolio/sentra-antes-1.jpg",
+      afterImageUrl: "/images/portfolio/sentra-depois-1.jpg"
     });
-    await storage.createPartner({
-      name: "Vonixx",
-      logoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-v5xJ-gD5v5xJ-gD5v5xJ-gD5v5xJ-gD5v5xJ&s", // Placeholder for Vonixx
-      website: "https://vonixx.com.br"
+    await storage.createPortfolioItem({
+      title: "VW Voyage - Recuperação Lateral e Frente",
+      beforeImageUrl: "/images/portfolio/voyage-antes-1.jpg",
+      afterImageUrl: "/images/portfolio/voyage-depois-1.jpg"
     });
   }
 }
