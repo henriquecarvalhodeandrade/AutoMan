@@ -18,6 +18,7 @@ export function Navbar() {
   const navLinks = [
     { name: "Quem Somos", to: "about" },
     { name: "Serviços", to: "services" },
+    { name: "Portfólio", to: "portfolio" },
     { name: "Parceiros", to: "partners" },
     { name: "Localização", to: "location" },
     { name: "Contato", to: "contact" },

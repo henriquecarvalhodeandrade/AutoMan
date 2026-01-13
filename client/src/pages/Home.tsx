@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ServiceCard } from "@/components/ServiceCard";
+import { PortfolioSection } from "@/components/PortfolioSection";
 import { ContactForm } from "@/components/ContactForm";
 import { useServices, usePartners } from "@/hooks/use-site-data";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -270,6 +271,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* === PORTFOLIO SECTION === */}
+      <PortfolioSection />
 
       {/* === PARTNERS SECTION === */}
       <section id="partners" className="py-20 bg-background overflow-hidden">
