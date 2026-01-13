@@ -40,33 +40,33 @@ export default function Home() {
     : [
         {
           id: 1,
-          title: "Martelinho de Ouro",
+          title: "Funilaria Artesanal (Martelinho de Ouro)",
           description:
-            "Técnica artesanal para remover amassados sem danificar a pintura original do veículo. Ideal para chuva de granizo e pequenas colisões.",
+            'Técnica de precisão usada para remover amassados sem danificar a pintura original. Utiliza ferramentas específicas para "massagear" a chapa de metal por trás, preservando a valorização do veículo e dispensando massa ou repintura.',
           imageUrl:
             "https://images.unsplash.com/photo-1618585675271-4a37651a2579?q=80&w=2070&auto=format&fit=crop",
         },
         {
           id: 2,
-          title: "Polimento Técnico",
+          title: "Funilaria Convencional",
           description:
-            "Correção da pintura removendo riscos superficiais, manchas e hologramas, devolvendo o brilho intenso e profundidade de cor.",
+            "Indicada para danos severos onde a chapa sofreu vincos fortes ou rasgos. Envolve o uso de lixas, soldas e preenchimento com massa poliéster, exigindo obrigatoriamente a repintura completa da peça afetada para restaurar o formato original.",
           imageUrl:
             "https://images.unsplash.com/photo-1552857497-6953dc5d862f?q=80&w=1974&auto=format&fit=crop",
         },
         {
           id: 3,
-          title: "Vitrificação",
+          title: "Polimento",
           description:
-            "Proteção cerâmica de alta durabilidade que cria uma barreira contra agentes externos, facilitando a limpeza e mantendo o brilho.",
+            "Processo abrasivo que remove uma microcamada do verniz para eliminar riscos superficiais, manchas e oxidação. Utiliza boinas e massas de polir para nivelar a superfície, devolvendo o brilho e a uniformidade visual à lataria.",
           imageUrl:
             "https://images.unsplash.com/photo-1562916174-a6f67137f88f?q=80&w=2070&auto=format&fit=crop",
         },
         {
           id: 4,
-          title: "Higienização Interna",
+          title: "Cristalização (ou Espelhamento)",
           description:
-            "Limpeza profunda e detalhada de bancos, carpetes e painéis, eliminando ácaros, fungos e odores desagradáveis.",
+            "Aplicação de uma resina protetora sobre o verniz já polido para selar os poros da pintura. O objetivo é garantir um brilho mais intenso e criar uma camada de proteção temporária contra agentes externos, facilitando a limpeza do carro.",
           imageUrl:
             "https://images.unsplash.com/photo-1605218427360-179267df8c1d?q=80&w=1932&auto=format&fit=crop",
         },
@@ -77,10 +77,10 @@ export default function Home() {
     : [
         {
           id: 1,
-          name: "3M.",
+          name: "Autoglass",
           logoUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/3M_wordmark.svg/2560px-3M_wordmark.svg.png",
-          website: "#",
+            "https://conteudo.autoglass.com.br/hubfs/logo-autoglass-RGB_LOGO-ORIGINAL-para-fundos-claros-3.png",
+          website: "https://www.google.com/aclk?sa=L&ai=DChsSEwi3zfK6uYmSAxUXRUgAHbWgJPAYACICCAEQABoCY2U&co=1&gclid=CjwKCAiA95fLBhBPEiwATXUsxFVxp3xVxoEuYtYpo4PK9JDXDjmtwmf15bPpxObgy14EBfI_OFb7jhoC_UEQAvD_BwE&cid=CAAS0gHkaKADSraWwnrxLhYslk9Afx8uEFu9Gpb4rrPV0Xho-4_h4zQQRVPxOQxec7LK_IFHNN9ocdY9Mw6Da8FRTaXlphCJAE7cXX08Mi45wJvQbCdybH0h9dsk1UbLbwA7WV5OrOTHQrQBOtIAOh-Pnj_QKDu2f3XpBZ25Dv2XEssssSISX0EGdj-Rvdf43CXBVkQvP4pdYq9Hn0v5HfvcWRHy9X3dPRmZBQXMlvGnZ3UWFb6bhqCMjWHHHmWPZHMZqdPxoxxDKaC4hNw5kZelxDhfjpY&cce=2&sig=AOD64_38M5iYbpdj4f2Rl39vHx5jkITXPw&q&adurl&ved=2ahUKEwjL_-y6uYmSAxX4A7kGHV2aLQMQ0Qx6BAgKEAE",
         },
         {
           id: 2,
