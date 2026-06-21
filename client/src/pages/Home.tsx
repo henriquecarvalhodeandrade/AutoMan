@@ -1,108 +1,29 @@
-import { useEffect, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ServiceCard } from "@/components/ServiceCard";
 import { ContactForm } from "@/components/ContactForm";
-import { useServices, usePartners } from "@/hooks/use-site-data";
+import { PortfolioSection } from "@/components/PortfolioSection";
+import { SERVICES, PARTNERS } from "@/data/site-data";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ArrowDown, CheckCircle2, MapPin, Phone, Star } from "lucide-react";
+import { ArrowDown, CheckCircle2, Star } from "lucide-react";
 import { Link } from "react-scroll";
 
-// Hero placeholder image - Luxury Car Detail
-// https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=2070&auto=format&fit=crop
 const HERO_IMAGE =
   "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=2070&auto=format&fit=crop";
 
-// About section image - Mechanic working
-// https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=1974&auto=format&fit=crop
 const ABOUT_IMAGE =
   "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=1974&auto=format&fit=crop";
 
 export default function Home() {
-  const { data: services, isLoading: isLoadingServices } = useServices();
-  const { data: partners, isLoading: isLoadingPartners } = usePartners();
   const { scrollY } = useScroll();
   const yHero = useTransform(scrollY, [0, 500], [0, 200]);
   const opacityHero = useTransform(scrollY, [0, 300], [1, 0]);
-
-  // Use realistic default data if API returns empty during development
-  const displayServices = services?.length
-    ? services
-    : [
-        {
-          id: 1,
-          title: "Martelinho de Ouro",
-          description:
-            "Técnica artesanal para remover amassados sem danificar a pintura original do veículo. Ideal para chuva de granizo e pequenas colisões.",
-          imageUrl:
-            "https://images.unsplash.com/photo-1618585675271-4a37651a2579?q=80&w=2070&auto=format&fit=crop",
-        },
-        {
-          id: 2,
-          title: "Polimento Técnico",
-          description:
-            "Correção da pintura removendo riscos superficiais, manchas e hologramas, devolvendo o brilho intenso e profundidade de cor.",
-          imageUrl:
-            "https://images.unsplash.com/photo-1552857497-6953dc5d862f?q=80&w=1974&auto=format&fit=crop",
-        },
-        {
-          id: 3,
-          title: "Vitrificação",
-          description:
-            "Proteção cerâmica de alta durabilidade que cria uma barreira contra agentes externos, facilitando a limpeza e mantendo o brilho.",
-          imageUrl:
-            "https://images.unsplash.com/photo-1562916174-a6f67137f88f?q=80&w=2070&auto=format&fit=crop",
-        },
-        {
-          id: 4,
-          title: "Higienização Interna",
-          description:
-            "Limpeza profunda e detalhada de bancos, carpetes e painéis, eliminando ácaros, fungos e odores desagradáveis.",
-          imageUrl:
-            "https://images.unsplash.com/photo-1605218427360-179267df8c1d?q=80&w=1932&auto=format&fit=crop",
-        },
-      ];
-
-  const displayPartners = partners?.length
-    ? partners
-    : [
-        {
-          id: 1,
-          name: "3M.",
-          logoUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/3M_wordmark.svg/2560px-3M_wordmark.svg.png",
-          website: "#",
-        },
-        {
-          id: 2,
-          name: "Meguiar's",
-          logoUrl:
-            "https://1000logos.net/wp-content/uploads/2021/10/Meguiars-Logo.png",
-          website: "#",
-        },
-        {
-          id: 3,
-          name: "Vonixx",
-          logoUrl:
-            "https://logodownload.org/wp-content/uploads/2022/08/vonixx-logo-1.png",
-          website: "#",
-        },
-        {
-          id: 4,
-          name: "Mothers",
-          logoUrl:
-            "https://seeklogo.com/images/M/Mothers_Polishes-logo-71D67B6F30-seeklogo.com.png",
-          website: "#",
-        },
-      ];
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary selection:text-black">
@@ -175,7 +96,6 @@ export default function Home() {
         id="about"
         className="py-24 md:py-32 bg-background relative overflow-hidden"
       >
-        {/* Background texture element */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
 
         <div className="container mx-auto px-4 max-w-7xl">
@@ -194,7 +114,6 @@ export default function Home() {
                   className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />
               </div>
-              {/* Decorative square */}
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/20 z-0 rounded-lg" />
               <div className="absolute -top-6 -right-6 w-32 h-32 border border-primary/30 z-0 rounded-lg" />
             </motion.div>
@@ -264,12 +183,14 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {displayServices.map((service, index) => (
+            {SERVICES.map((service, index) => (
               <ServiceCard key={service.id} service={service} index={index} />
             ))}
           </div>
         </div>
       </section>
+
+      <PortfolioSection />
 
       {/* === PARTNERS SECTION === */}
       <section id="partners" className="py-20 bg-background overflow-hidden">
@@ -285,7 +206,7 @@ export default function Home() {
               opts={{ align: "start", loop: true }}
             >
               <CarouselContent className="-ml-4 md:-ml-8">
-                {displayPartners.map((partner) => (
+                {PARTNERS.map((partner) => (
                   <CarouselItem
                     key={partner.id}
                     className="pl-4 md:pl-8 basis-1/2 md:basis-1/4"
@@ -329,7 +250,6 @@ export default function Home() {
             id="contact"
             className="relative bg-secondary/10 p-8 lg:p-20 flex flex-col justify-center"
           >
-            {/* Background pattern */}
             <div
               className="absolute inset-0 opacity-5"
               style={{
@@ -337,7 +257,7 @@ export default function Home() {
                   "radial-gradient(#fbbf24 1px, transparent 1px)",
                 backgroundSize: "30px 30px",
               }}
-            ></div>
+            />
 
             <div className="relative z-10 max-w-lg mx-auto w-full">
               <h4 className="text-primary font-bold tracking-widest uppercase mb-2">
@@ -355,7 +275,7 @@ export default function Home() {
 
       {/* Call to Action Banner */}
       <section className="py-20 bg-primary text-background text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
             Seu carro merece o melhor tratamento

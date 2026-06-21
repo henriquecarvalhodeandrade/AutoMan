@@ -1,15 +1,88 @@
-import { motion } from "framer-motion";
-import { usePortfolio } from "@/hooks/use-site-data";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { PORTFOLIO, type PortfolioItem } from "@/data/site-data";
+
+function PortfolioCard({ item }: { item: PortfolioItem }) {
+  const [isAfter, setIsAfter] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="group relative bg-white/5 rounded-sm overflow-hidden border border-white/10 hover:border-primary/30 transition-colors duration-300"
+    >
+      {/* Image area */}
+      <div className="relative aspect-square overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={isAfter ? "after" : "before"}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            src={isAfter ? item.afterImageUrl : item.beforeImageUrl}
+            alt={`${item.title} – ${isAfter ? "Depois" : "Antes"}`}
+            className="w-full h-full object-cover"
+          />
+        </AnimatePresence>
+
+        {/* State badge */}
+        <div
+          className={`absolute top-4 left-4 px-3 py-1 rounded-sm text-xs font-bold uppercase tracking-widest border z-10 backdrop-blur-sm transition-all duration-300 ${
+            isAfter
+              ? "bg-primary/80 text-black border-primary"
+              : "bg-black/70 text-white border-white/20"
+          }`}
+        >
+          {isAfter ? "Depois ✓" : "Antes"}
+        </div>
+
+        {/* Hover overlay with toggle */}
+        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <button
+            onClick={() => setIsAfter((v) => !v)}
+            className="bg-primary text-black font-bold px-6 py-2 rounded-sm text-sm uppercase tracking-widest hover:bg-white transition-colors"
+          >
+            Ver {isAfter ? "Antes" : "Depois"}
+          </button>
+        </div>
+
+        {/* Bottom toggle pills */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          <button
+            onClick={() => setIsAfter(false)}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              !isAfter ? "w-8 bg-primary" : "w-4 bg-white/30"
+            }`}
+            aria-label="Ver antes"
+          />
+          <button
+            onClick={() => setIsAfter(true)}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              isAfter ? "w-8 bg-primary" : "w-4 bg-white/30"
+            }`}
+            aria-label="Ver depois"
+          />
+        </div>
+      </div>
+
+      {/* Card info */}
+      <div className="p-6">
+        <h3 className="text-lg font-bold text-white mb-1 group-hover:text-primary transition-colors">
+          {item.title}
+        </h3>
+        <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
+        <p className="text-xs text-gray-600 mt-3 italic">
+          Passe o mouse ou clique nas barras para alternar Antes/Depois
+        </p>
+      </div>
+    </motion.div>
+  );
+}
 
 export function PortfolioSection() {
-  const { data: portfolioItems, isLoading } = usePortfolio();
-  const [activeImage, setActiveImage] = useState<Record<number, 'before' | 'after'>>({});
-
-  if (isLoading || !portfolioItems?.length) return null;
-
   return (
     <section id="portfolio" className="py-24 bg-background">
       <div className="container mx-auto px-4 max-w-7xl">
@@ -18,7 +91,7 @@ export function PortfolioSection() {
             Trabalhos Realizados
           </h4>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
-            Serviços Concluídos (Antes e Depois)
+            Antes e Depois
           </h2>
           <p className="text-gray-400 text-lg">
             Veja a transformação de veículos que passaram pelo padrão Automan de qualidade.
@@ -26,72 +99,9 @@ export function PortfolioSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {portfolioItems.map((item) => {
-            const isAfter = activeImage[item.id] === 'after';
-            
-            return (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="group relative bg-white/5 rounded-lg overflow-hidden border border-white/10"
-              >
-                <div className="relative aspect-square overflow-hidden">
-                  <motion.img
-                    key={isAfter ? 'after' : 'before'}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    src={isAfter ? item.afterImageUrl : item.beforeImageUrl}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  
-                  {/* Badge */}
-                  <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded text-xs font-bold uppercase tracking-widest text-white border border-white/20 z-10">
-                    {isAfter ? 'Depois' : 'Antes'}
-                  </div>
-
-                  {/* Toggle Button */}
-                  <div className="absolute inset-0 flex items-center justify-between px-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Button
-                      size="icon"
-                      variant="outline"
-                      className="rounded-full bg-black/50 border-white/20 hover:bg-primary hover:text-black"
-                      onClick={() => setActiveImage(prev => ({ ...prev, [item.id]: isAfter ? 'before' : 'after' }))}
-                    >
-                      <ChevronLeft className="w-6 h-6" />
-                    </Button>
-                    <Button
-                      size="icon"
-                      variant="outline"
-                      className="rounded-full bg-black/50 border-white/20 hover:bg-primary hover:text-black"
-                      onClick={() => setActiveImage(prev => ({ ...prev, [item.id]: isAfter ? 'before' : 'after' }))}
-                    >
-                      <ChevronRight className="w-6 h-6" />
-                    </Button>
-                  </div>
-
-                  {/* Slider Control Bar (Visual only) */}
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                    <button 
-                      onClick={() => setActiveImage(prev => ({ ...prev, [item.id]: 'before' }))}
-                      className={`w-12 h-1 ${!isAfter ? 'bg-primary' : 'bg-white/30'} rounded-full transition-all`}
-                    />
-                    <button 
-                      onClick={() => setActiveImage(prev => ({ ...prev, [item.id]: 'after' }))}
-                      className={`w-12 h-1 ${isAfter ? 'bg-primary' : 'bg-white/30'} rounded-full transition-all`}
-                    />
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-400">Clique nas setas ou barras para alternar entre antes e depois.</p>
-                </div>
-              </motion.div>
-            );
-          })}
+          {PORTFOLIO.map((item) => (
+            <PortfolioCard key={item.id} item={item} />
+          ))}
         </div>
       </div>
     </section>
