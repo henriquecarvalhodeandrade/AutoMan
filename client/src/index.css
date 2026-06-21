@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark Automotive Theme */
+  /* Background: Deep Charcoal/Black */
+  --background: 220 13% 10%; 
+  /* Foreground: Off-white for text */
+  --foreground: 210 20% 98%;
+
+  /* Primary: Gold / Amber for "Martelinho de Ouro" feel */
+  --primary: 43 96% 56%;
+  --primary-foreground: 220 13% 10%;
+
+  /* Secondary: Dark slate grey for cards/sections */
+  --secondary: 217 19% 27%;
+  --secondary-foreground: 210 20% 98%;
+
+  /* Muted: Subtle greys for borders/secondary text */
+  --muted: 217 19% 20%;
+  --muted-foreground: 215 20% 65%;
+
+  /* Accent: Metallic Silver/Blue for tech feel */
+  --accent: 210 40% 96%;
+  --accent-foreground: 222 47% 11%;
+
+  /* Destructive */
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 210 40% 98%;
+
+  /* Borders */
+  --border: 217 19% 20%;
+  --input: 217 19% 20%;
+  --ring: 43 96% 56%;
+
+  /* Radius */
+  --radius: 0.2rem;
+
+  /* Fonts */
+  --font-display: 'Cinzel', serif; /* Elegant, premium automotive feel */
+  --font-body: 'Manrope', sans-serif; /* Clean, modern, technical */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight font-bold;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+.gold-glow {
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+}
+
+.glass-panel {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
