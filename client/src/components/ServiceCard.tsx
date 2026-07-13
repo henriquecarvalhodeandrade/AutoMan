@@ -16,10 +16,12 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
       viewport={{ once: true }}
       className="group relative h-[400px] overflow-hidden rounded-sm cursor-pointer"
     >
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-        style={{ backgroundImage: `url(${service.imageUrl})` }}
+      {/* Background Image — lazy loaded */}
+      <img
+        src={service.imageUrl}
+        alt={service.title}
+        loading="lazy"
+        className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
       />
 
       {/* Overlay */}

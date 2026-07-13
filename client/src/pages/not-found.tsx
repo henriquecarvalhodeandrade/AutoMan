@@ -1,6 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { AlertCircle } from "lucide-react";
-import { Link } from "wouter";
 
 export default function NotFound() {
   return (
@@ -18,9 +17,9 @@ export default function NotFound() {
             Parece que a página que você está procurando não existe ou foi movida.
           </p>
 
-          <Link href="/" className="bg-primary text-background font-bold py-3 px-8 rounded hover:bg-primary/90 transition-all inline-block uppercase tracking-wide">
+          <a href="/" className="bg-primary text-background font-bold py-3 px-8 rounded hover:bg-primary/90 transition-all inline-block uppercase tracking-wide">
             Voltar ao Início
-          </Link>
+          </a>
         </CardContent>
       </Card>
     </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-scroll";
-import { Wrench, Instagram, Facebook, Phone, MapPin, Mail } from "lucide-react";
+import { Instagram, Facebook, Phone, MapPin, Mail } from "lucide-react";
 import { COMPANY } from "@/data/site-data";
 
 const navLinks = [
@@ -22,14 +22,13 @@ export function Footer() {
 
           {/* Brand column */}
           <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-orange-600 rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
-                <Wrench className="text-background w-6 h-6" />
-              </div>
-              <div>
-                <span className="font-display font-bold text-2xl tracking-wider text-white">AUTO</span>
-                <span className="font-display font-bold text-2xl tracking-wider text-primary">MAN</span>
-              </div>
+            <div>
+              <img
+                src="/images/AutoMan/logo/logo.webp"
+                alt="Automan Funilaria Artesanal"
+                className="h-14 w-auto object-contain"
+                style={{ filter: "drop-shadow(0 0 6px rgba(251,191,36,0.25))" }}
+              />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               Especialistas em estética automotiva premium. Restauramos a perfeição original do seu veículo com técnicas artesanais e produtos de classe mundial.

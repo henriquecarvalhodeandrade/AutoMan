@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
-import { Menu, X, Wrench } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
@@ -33,14 +33,13 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo(0,0)}>
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-orange-600 rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
-              <Wrench className="text-background w-6 h-6" />
-            </div>
-            <div>
-              <span className="font-display font-bold text-2xl tracking-wider text-white">AUTO</span>
-              <span className="font-display font-bold text-2xl tracking-wider text-primary">MAN</span>
-            </div>
+          <div className="flex-shrink-0 cursor-pointer" onClick={() => window.scrollTo(0,0)}>
+            <img
+              src="/images/AutoMan/logo/logo.webp"
+              alt="Automan Funilaria Artesanal"
+              className="h-12 w-auto object-contain"
+              style={{ filter: "drop-shadow(0 0 6px rgba(251,191,36,0.3))" }}
+            />
           </div>
 
           {/* Desktop Menu */}

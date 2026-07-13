@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 80" width="260" height="80">
+  <rect width="260" height="80" fill="#C41E3A"/>
+  <text x="130" y="34" font-family="Georgia, Times New Roman, serif" font-size="22" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">Mother's</text>
+  <text x="130" y="54" font-family="Georgia, Times New Roman, serif" font-size="10" fill="#FFD700" text-anchor="middle" letter-spacing="2">POLISHES · WAXES · CLEANERS</text>
+  <line x1="40" y1="42" x2="90" y2="42" stroke="#FFD700" stroke-width="1"/>
+  <line x1="170" y1="42" x2="220" y2="42" stroke="#FFD700" stroke-width="1"/>
+</svg>

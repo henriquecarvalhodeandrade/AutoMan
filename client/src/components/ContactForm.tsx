@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Loader2, Send, MessageCircle } from "lucide-react";
+import { Send, MessageCircle } from "lucide-react";
 import { COMPANY } from "@/data/site-data";
 import {
   Form,
