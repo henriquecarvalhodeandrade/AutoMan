@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { publicUrl } from "@/lib/public-url";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +36,7 @@ export function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0 cursor-pointer" onClick={() => window.scrollTo(0,0)}>
             <img
-              src="/images/AutoMan/logo/logo.webp"
+              src={publicUrl("/images/AutoMan/logo/logo.webp")}
               alt="Automan Funilaria Artesanal"
               className="h-12 w-auto object-contain"
               style={{ filter: "drop-shadow(0 0 6px rgba(251,191,36,0.3))" }}

@@ -1,6 +1,7 @@
 import { Link } from "react-scroll";
 import { Instagram, Facebook, Phone, MapPin, Mail } from "lucide-react";
 import { COMPANY } from "@/data/site-data";
+import { publicUrl } from "@/lib/public-url";
 
 const navLinks = [
   { name: "Quem Somos", to: "about" },
@@ -24,7 +25,7 @@ export function Footer() {
           <div className="space-y-6">
             <div>
               <img
-                src="/images/AutoMan/logo/logo.webp"
+                src={publicUrl("/images/AutoMan/logo/logo.webp")}
                 alt="Automan Funilaria Artesanal"
                 className="h-14 w-auto object-contain"
                 style={{ filter: "drop-shadow(0 0 6px rgba(251,191,36,0.25))" }}

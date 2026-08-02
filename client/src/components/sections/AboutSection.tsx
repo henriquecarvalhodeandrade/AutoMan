@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
+import { publicUrl } from "@/lib/public-url";
 
-const ABOUT_IMAGE = "/images/AutoMan/escritório/escritorio-1.webp";
+const ABOUT_IMAGE = publicUrl("/images/AutoMan/escritório/escritorio-1.webp");
 
 const DIFFERENTIALS = [
   "Certificação Internacional",

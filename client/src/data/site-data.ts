@@ -2,6 +2,8 @@
 // Static site data — replaces server-side API
 // ============================================================
 
+import { publicUrl } from "@/lib/public-url";
+
 export interface Service {
   id: number;
   title: string;
@@ -17,7 +19,7 @@ export interface Partner {
 }
 
 // Caminhos base das imagens locais (WebP otimizado)
-const IMG = "/images/AutoMan";
+const IMG = publicUrl("/images/AutoMan");
 
 export const SERVICES: Service[] = [
   {
@@ -54,25 +56,25 @@ export const PARTNERS: Partner[] = [
   {
     id: 1,
     name: "3M",
-    logoUrl: "/images/AutoMan/parceiros/3m-logo.svg",
+    logoUrl: publicUrl("/images/AutoMan/parceiros/3m-logo.svg"),
     website: "#",
   },
   {
     id: 2,
     name: "Meguiar's",
-    logoUrl: "/images/AutoMan/parceiros/meguiars-logo.svg",
+    logoUrl: publicUrl("/images/AutoMan/parceiros/meguiars-logo.svg"),
     website: "#",
   },
   {
     id: 3,
     name: "Vonixx",
-    logoUrl: "/images/AutoMan/parceiros/vonixx-logo.svg",
+    logoUrl: publicUrl("/images/AutoMan/parceiros/vonixx-logo.svg"),
     website: "#",
   },
   {
     id: 4,
     name: "Mothers",
-    logoUrl: "/images/AutoMan/parceiros/mothers-logo.svg",
+    logoUrl: publicUrl("/images/AutoMan/parceiros/mothers-logo.svg"),
     website: "#",
   },
 ];

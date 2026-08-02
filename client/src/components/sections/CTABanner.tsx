@@ -1,11 +1,15 @@
 import { Star } from "lucide-react";
+import { publicUrl } from "@/lib/public-url";
 
 const STARS = [1, 2, 3, 4, 5];
 
 export function CTABanner() {
   return (
     <section className="py-20 bg-primary text-background text-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/images/carbon-fibre.png')] opacity-10" />
+      <div
+        className="absolute inset-0 opacity-10"
+        style={{ backgroundImage: `url(${publicUrl("/images/carbon-fibre.png")})` }}
+      />
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
           Seu carro merece o melhor tratamento
