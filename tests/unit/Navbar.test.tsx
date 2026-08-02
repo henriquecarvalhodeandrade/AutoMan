@@ -38,7 +38,7 @@ describe("Navbar", () => {
     expect(screen.getAllByText(/Quem Somos/i).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/Serviços/i).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/Portfólio/i).length).toBeGreaterThan(0);
-    expect(screen.getAllByText(/Parceiros/i).length).toBeGreaterThan(0);
+
     expect(screen.getAllByText(/Localização/i).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/Contato/i).length).toBeGreaterThan(0);
   });

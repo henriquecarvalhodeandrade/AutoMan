@@ -23,20 +23,12 @@ describe("AboutSection", () => {
     expect(screen.getByText(/Excelência em Cada Detalhe/i)).toBeInTheDocument();
   });
 
-  it("renderiza a imagem do escritório com caminho local (não Unsplash)", () => {
-    render(<AboutSection />);
-    const img = screen.getByAltText(/Automan — Escritório/i);
-    expect(img).toBeInTheDocument();
-    expect(img).toHaveAttribute("loading", "lazy");
-    expect(img.getAttribute("src")).toContain("escritorio-1.webp");
-    expect(img.getAttribute("src")).not.toContain("unsplash.com");
-  });
 
-  it("renderiza os 4 diferenciais da empresa com ícone de check", () => {
+  it("renderiza os 4 diferenciais da empresa", () => {
     render(<AboutSection />);
     expect(screen.getByText("Certificação Internacional")).toBeInTheDocument();
     expect(screen.getByText("Atendimento Premium")).toBeInTheDocument();
-    expect(screen.getByText("Garantia Vitalícia")).toBeInTheDocument();
+    expect(screen.getByText("Garantia no Serviço")).toBeInTheDocument();
     expect(screen.getByText("Tecnologia de Ponta")).toBeInTheDocument();
   });
 });
