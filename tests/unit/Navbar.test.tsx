@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Navbar } from "@/components/Navbar";
 
@@ -79,10 +79,12 @@ describe("Navbar", () => {
     expect(screen.queryByText("Agendar Orçamento")).not.toBeInTheDocument();
   });
 
-  it("a navbar responde ao evento de scroll", () => {
+  it("a navbar responde ao evento de scroll", async () => {
     // Simula scroll acima do threshold de 50px
-    Object.defineProperty(window, "scrollY", { value: 100, writable: true });
-    window.dispatchEvent(new Event("scroll"));
+    await act(async () => {
+      Object.defineProperty(window, "scrollY", { value: 100, writable: true });
+      window.dispatchEvent(new Event("scroll"));
+    });
 
     // A classe scrolled deve alterar o estilo do nav
     const nav = document.querySelector("nav");

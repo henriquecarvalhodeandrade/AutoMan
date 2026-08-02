@@ -135,11 +135,11 @@ export const COMPANY = {
   tagline: "Estética Automotiva Premium",
   address: "São José dos Campos – SP",
   addressFull: "Rua Paraibuna, 1177 — São José dos Campos, SP — CEP 12245-020",
-  phone: "+55 12 99999-9999", // TODO: substituir pelo número real
-  whatsapp: "5512999999999",  // TODO: substituir pelo número real (só dígitos)
-  email: "contato@automan.com.br",
-  instagram: "https://instagram.com/automan", // TODO: substituir pelo perfil real
-  facebook: "https://facebook.com/automan",   // TODO: substituir pelo perfil real
+  phone: "+55 12 3923-8540",
+  whatsapp: "5512974059773",
+  email: "automan.oficina@gmail.com",
+  instagram: "https://www.instagram.com/automanoficina/",
+  facebook: "https://www.facebook.com/AutoManMartelinhoDeOuro?locale=pt_BR",
   mapsEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.1179195308514!2d-45.88829772494088!3d-23.20237284850139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cc4a67e58b9593%3A0x378721ccfe6ac86a!2sAuto%20Man%20Funilaria%20Artesanal%20e%20Convencional%20-%20Martelinho%20de%20Ouro!5e0!3m2!1spt-BR!2sbr!4v1768005582601!5m2!1spt-BR!2sbr",
 };
