@@ -6,9 +6,15 @@ import { publicUrl } from "@/lib/public-url";
 
 export interface Service {
   id: number;
+  slug: string;
   title: string;
   description: string;
   imageUrl: string;
+  detail: {
+    tagline: string;
+    body: string;
+    bullets: string[];
+  };
 }
 
 export interface Partner {
@@ -24,31 +30,79 @@ const IMG = publicUrl("/images/AutoMan");
 export const SERVICES: Service[] = [
   {
     id: 1,
-    title: "Martelinho de Ouro",
+    slug: "funilaria-artesanal",
+    title: "Funilaria Artesanal",
     description:
-      "Técnica artesanal para remover amassados sem danificar a pintura original do veículo. Ideal para chuva de granizo e pequenas colisões.",
+      "Técnica de Martelinho de Ouro para restaurar amassados sem repintura, preservando 100% da pintura de fábrica.",
     imageUrl: `${IMG}/onix vermelho/onix-antes.webp`,
+    detail: {
+      tagline: "Sem repintura. Sem perda de valor.",
+      body: "A funilaria artesanal — conhecida como Martelinho de Ouro — é a técnica mais nobre da estética automotiva. Utilizamos ferramentas de precisão para empurrar a lataria de dentro para fora, eliminando amassados causados por granizo, colisões leves e manuseio inadequado. Por não envolver lixamento nem repintura, a pintura original do fabricante é totalmente preservada, o que mantém o valor de mercado do veículo e garante um resultado invisível.",
+      bullets: [
+        "Pintura original 100% preservada",
+        "Ideal para granizo e amassados sem quebra de tinta",
+        "Sem rebaixar o valor do veículo",
+        "Processo limpo — sem solventes ou primers",
+        "Resultado em horas, não em dias",
+      ],
+    },
   },
   {
     id: 2,
-    title: "Polimento Técnico",
+    slug: "funilaria-convencional",
+    title: "Funilaria Convencional",
     description:
-      "Correção da pintura removendo riscos superficiais, manchas e hologramas, devolvendo o brilho intenso e profundidade de cor.",
-    imageUrl: `${IMG}/onix vermelho/onix-depois.webp`,
+      "Reparo completo de lataria com massa, lixamento e repintura para danos onde a pintura foi comprometida.",
+    imageUrl: `${IMG}/hb20/hb20-durante.webp`,
+    detail: {
+      tagline: "Quando o dano exige reparo completo.",
+      body: "Para colisões mais severas — onde há quebra de tinta, deformação profunda ou necessidade de substituição de peças — a funilaria convencional é a solução. O processo envolve endireitamento da lataria, aplicação de massa niveladora, lixamento progressivo, aplicação de primer e repintura com tinta automotiva de alta qualidade, com cabine de pintura para acabamento profissional.",
+      bullets: [
+        "Reparo de colisões severas e deformações profundas",
+        "Pintura com tinta automotiva em cabine",
+        "Substituição de peças quando necessário",
+        "Acabamento idêntico ao original de fábrica",
+        "Garantia no serviço de pintura",
+      ],
+    },
   },
   {
     id: 3,
-    title: "Vitrificação",
+    slug: "polimento",
+    title: "Polimento",
     description:
-      "Proteção cerâmica de alta durabilidade que cria uma barreira contra agentes externos, facilitando a limpeza e mantendo o brilho.",
-    imageUrl: `${IMG}/VW Taos/taos-depois.webp`,
+      "Correção e renovação da pintura removendo riscos, manchas e oxidação para devolver o brilho original.",
+    imageUrl: `${IMG}/onix vermelho/onix-depois.webp`,
+    detail: {
+      tagline: "Brilho de showroom, sem trocar a pintura.",
+      body: "O polimento técnico é o processo de desbaste e refino da camada de verniz para eliminar imperfeições como riscos finos, marcas de lavagem automática, manchas de água e oxidação superficial. Utilizamos polidores e compostos de abrasividade graduada com máquinas rotativas e de dupla ação, garantindo um acabamento espelhado e profundo sem comprometer a espessura do verniz.",
+      bullets: [
+        "Remove riscos superficiais e marcas de lavagem",
+        "Elimina manchas de água e oxidação",
+        "Corrige hologramas e swirl marks",
+        "Devolve profundidade e brilho ao verniz",
+        "Prepara a pintura para proteção cerâmica",
+      ],
+    },
   },
   {
     id: 4,
-    title: "Higienização Interna",
+    slug: "cristalizacao",
+    title: "Cristalização",
     description:
-      "Limpeza profunda e detalhada de bancos, carpetes e painéis, eliminando ácaros, fungos e odores desagradáveis.",
-    imageUrl: `${IMG}/escritório/escritorio-1.webp`,
+      "Proteção cerâmica de alta durabilidade que sela o verniz, facilita a limpeza e mantém o brilho por anos.",
+    imageUrl: `${IMG}/VW Taos/taos-depois.webp`,
+    detail: {
+      tagline: "Proteção permanente. Brilho duradouro.",
+      body: "A cristalização — também chamada de vitrificação ou coating cerâmico — é uma camada protetora de SiO₂ (dióxido de silício) aplicada sobre o verniz. Ela cria uma barreira dura e hidrofóbica que repele água, poeira, insetos e contaminantes químicos, tornando a limpeza muito mais fácil. O resultado é um brilho intenso e persistente que pode durar de 2 a 5 anos, dependendo do produto e das condições de uso.",
+      bullets: [
+        "Hidrofobia extrema — água escorrega sozinha",
+        "Proteção contra UV, chuva ácida e contaminantes",
+        "Duração de 2 a 5 anos",
+        "Facilita lavagens futuras",
+        "Intensifica profundidade e brilho da cor",
+      ],
+    },
   },
 ];
 
@@ -137,8 +191,24 @@ export const COMPANY = {
   tagline: "Estética Automotiva Premium",
   address: "São José dos Campos – SP",
   addressFull: "Rua Paraibuna, 1177 — São José dos Campos, SP — CEP 12245-020",
-  phone: "+55 12 3923-8540",
-  whatsapp: "5512974059773",
+  contacts: [
+    {
+      name: "Rafaela",
+      phones: [
+        { number: "+55 12 3923-8561", tel: "+551239238561" },
+        { number: "+55 12 97405-9773", tel: "+5512974059773" },
+      ],
+      whatsapp: "5512974059773",
+    },
+    {
+      name: "Rogério",
+      phones: [
+        { number: "+55 12 3941-6160", tel: "+551239416160" },
+        { number: "+55 12 97403-3720", tel: "+5512974033720" },
+      ],
+      whatsapp: "5512974033720",
+    },
+  ],
   email: "automan.oficina@gmail.com",
   instagram: "https://www.instagram.com/automanoficina/",
   facebook: "https://www.facebook.com/AutoManMartelinhoDeOuro?locale=pt_BR",

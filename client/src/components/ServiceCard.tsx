@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-scroll";
 import type { Service } from "@/data/site-data";
 
 interface ServiceCardProps {
@@ -37,9 +38,15 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
             {service.description}
           </p>
 
-          <div className="flex items-center gap-2 text-primary text-sm font-bold tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200">
+          <Link
+            to={`service-detail-${service.slug}`}
+            smooth={true}
+            duration={600}
+            offset={-80}
+            className="flex items-center gap-2 text-primary text-sm font-bold tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200 w-fit"
+          >
             Saiba Mais <ArrowRight className="w-4 h-4" />
-          </div>
+          </Link>
         </div>
       </div>
 

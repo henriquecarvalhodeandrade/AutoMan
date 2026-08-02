@@ -25,6 +25,7 @@ type ContactData = z.infer<typeof contactSchema>;
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [selectedContact, setSelectedContact] = useState(COMPANY.contacts[0].name);
 
   const form = useForm<ContactData>({
     resolver: zodResolver(contactSchema),
@@ -32,11 +33,14 @@ export function ContactForm() {
   });
 
   const onSubmit = (data: ContactData) => {
+    const contact = COMPANY.contacts.find((c) => c.name === selectedContact)
+      ?? COMPANY.contacts[0];
+
     const text = encodeURIComponent(
       `Olá! Meu nome é ${data.name} (${data.email}).\n\n${data.message}`
     );
     window.open(
-      `https://wa.me/${COMPANY.whatsapp}?text=${text}`,
+      `https://wa.me/${contact.whatsapp}?text=${text}`,
       "_blank",
       "noopener,noreferrer"
     );
@@ -118,6 +122,37 @@ export function ContactForm() {
               </FormItem>
             )}
           />
+
+          {/* WhatsApp contact selector */}
+          <div>
+            <p className="text-gray-300 text-sm font-medium mb-3">
+              Enviar para
+            </p>
+            <div className="grid grid-cols-2 gap-3">
+              {COMPANY.contacts.map((contact) => {
+                const isSelected = selectedContact === contact.name;
+                return (
+                  <button
+                    key={contact.name}
+                    type="button"
+                    onClick={() => setSelectedContact(contact.name)}
+                    className={`flex flex-col items-start px-4 py-3 rounded-sm border text-left transition-all duration-200 ${
+                      isSelected
+                        ? "bg-primary/15 border-primary text-white"
+                        : "bg-black/20 border-white/10 text-gray-400 hover:border-white/30"
+                    }`}
+                  >
+                    <span className={`text-xs font-bold uppercase tracking-widest mb-0.5 ${isSelected ? "text-primary" : "text-gray-500"}`}>
+                      {contact.name}
+                    </span>
+                    <span className="text-xs opacity-70">
+                      {contact.phones[1]?.number ?? contact.phones[0].number}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
 
           <button
             type="submit"

@@ -3,7 +3,7 @@ import { Link } from "react-scroll";
 import { ArrowDown } from "lucide-react";
 import { publicUrl } from "@/lib/public-url";
 
-const HERO_IMAGE = publicUrl("/images/AutoMan/visao panoramica/fachada-principal.webp");
+const HERO_IMAGE = publicUrl("/images/AutoMan/escritório/escritorio-1.webp");
 
 export function HeroSection() {
   const { scrollY } = useScroll();

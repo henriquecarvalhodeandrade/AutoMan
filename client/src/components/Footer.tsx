@@ -7,7 +7,6 @@ const navLinks = [
   { name: "Quem Somos", to: "about" },
   { name: "Serviços", to: "services" },
   { name: "Portfólio", to: "portfolio" },
-  { name: "Parceiros", to: "partners" },
   { name: "Localização", to: "location" },
   { name: "Contato", to: "contact" },
 ];
@@ -90,15 +89,27 @@ export function Footer() {
                 <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                 <span>{COMPANY.address}</span>
               </li>
-              <li>
-                <a
-                  href={`tel:${COMPANY.phone}`}
-                  className="flex items-center gap-3 text-gray-400 hover:text-primary transition-colors text-sm group"
-                >
-                  <Phone className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span>{COMPANY.phone}</span>
-                </a>
-              </li>
+              {COMPANY.contacts.map((contact) => (
+                <li key={contact.name}>
+                  <div className="flex items-start gap-3">
+                    <Phone className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <span className="block text-gray-500 text-xs mb-1 uppercase tracking-wider">
+                        {contact.name}
+                      </span>
+                      {contact.phones.map((p) => (
+                        <a
+                          key={p.tel}
+                          href={`tel:${p.tel}`}
+                          className="block text-gray-400 hover:text-primary transition-colors text-sm"
+                        >
+                          {p.number}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </li>
+              ))}
               <li>
                 <a
                   href={`mailto:${COMPANY.email}`}
